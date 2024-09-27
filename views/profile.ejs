@@ -1,0 +1,10 @@
+<%- include('partials/header', { title: 'Profile' }) %>
+
+<div class="text-center">
+  <h2 class="text-4xl font-bold">Profile</h2>
+  <p class="mt-4">Email: <%= user.email %></p>
+  <p class="mt-4">
+    <a href="/settings" class="text-blue-500 hover:underline">Edit Account Settings</a>
+  </p>
+</div>
+

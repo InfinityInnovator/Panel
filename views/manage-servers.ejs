@@ -1,0 +1,31 @@
+<%- include('partials/header', { title: 'Manage Servers' }) %>
+
+<div class="text-center">
+  <h2 class="text-4xl font-bold">Manage Servers</h2>
+
+  <table class="table-auto w-full mt-8 bg-white shadow-lg">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">Server Name</th>
+        <th class="px-4 py-2">Status</th>
+        <th class="px-4 py-2">Created At</th>
+        <th class="px-4 py-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% servers.forEach(server => { %>
+      <tr>
+        <td class="border px-4 py-2"><%= server.name %></td>
+        <td class="border px-4 py-2"><%= server.status %></td>
+        <td class="border px-4 py-2"><%= new Date(server.createdAt).toLocaleString() %></td>
+        <td class="border px-4 py-2">
+          <a href="/servers/start/<%= server.id %>" class="text-blue-500 hover:underline">Start</a> |
+          <a href="/servers/stop/<%= server.id %>" class="text-red-500 hover:underline">Stop</a> |
+          <a href="/servers/delete/<%= server.id %>" class="text-red-600 hover:underline">Delete</a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+

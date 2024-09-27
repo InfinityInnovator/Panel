@@ -1,0 +1,40 @@
+<%- include('partials/header', { title: 'Create Server' }) %>
+
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold mb-6">Create a New Server</h1>
+
+    <form action="/create-server" method="POST" class="space-y-6">
+        <div>
+            <label for="name" class="block text-lg font-medium">Server Name</label>
+            <input type="text" id="name" name="name" class="mt-2 p-2 w-full border rounded" required>
+        </div>
+
+        <div>
+            <label for="description" class="block text-lg font-medium">Description</label>
+            <textarea id="description" name="description" class="mt-2 p-2 w-full border rounded" rows="4"></textarea>
+        </div>
+
+        <div>
+            <label for="eggId" class="block text-lg font-medium">Egg (Server Type)</label>
+            <input type="text" id="eggId" name="eggId" class="mt-2 p-2 w-full border rounded" required placeholder="e.g., Minecraft, Discord bot">
+        </div>
+
+        <div>
+            <label for="nodeId" class="block text-lg font-medium">Node</label>
+            <input type="text" id="nodeId" name="nodeId" class="mt-2 p-2 w-full border rounded" required placeholder="e.g., Node 1">
+        </div>
+
+        <div>
+            <label for="allocationId" class="block text-lg font-medium">Allocation (IP + Port)</label>
+            <input type="text" id="allocationId" name="allocationId" class="mt-2 p-2 w-full border rounded" required>
+        </div>
+
+        <div>
+            <label for="environment" class="block text-lg font-medium">Environment Variables</label>
+            <textarea id="environment" name="environment" class="mt-2 p-2 w-full border rounded" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Create Server</button>
+    </form>
+</div>
+

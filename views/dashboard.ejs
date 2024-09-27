@@ -1,0 +1,35 @@
+<%- include('partials/header', { title: 'Dashboard' }) %>
+
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold mb-6">Welcome!</h1>
+
+    <!-- Servers Section -->
+    <div class="mt-6">
+        <h2 class="text-3xl font-bold">Your Servers</h2>
+
+        <% if (servers.length === 0) { %>
+            <!-- No servers message -->
+            <div class="mt-4 p-4 bg-yellow-100 text-yellow-700 rounded-lg">
+                <p><%= message %></p>
+            </div>
+        <% } else { %>
+            <!-- Servers table if servers exist -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <% servers.forEach(server => { %>
+                    <div class="bg-white shadow-lg rounded-lg p-6">
+                        <h3 class="text-xl font-bold mb-2"><%= server.attributes.name %></h3>
+                        <p class="text-gray-600 mb-4">Status: <%= server.attributes.status %></p>
+                        <p class="text-gray-600 mb-4">Created At: <%= new Date(server.attributes.created_at).toLocaleString() %></p>
+                        <a href="/servers/<%= server.attributes.identifier %>" class="text-blue-500 hover:underline">Manage Server</a>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Log Out Button -->
+    <div class="mt-8 text-center">
+        <a href="/logout" class="text-red-500 hover:underline">Log Out</a>
+    </div>
+</div>
+
